@@ -10,12 +10,8 @@ RUN apt-get install --no-install-recommends -y git gpg procps
 # Install Tex Live
 RUN apt-get update && apt-get -y upgrade \
     && apt-get -y install --no-install-recommends \
-    texlive-latex-base \
-    texlive-extra-utils \
-    texlive-latex-extra \
-    biber chktex latexmk make python3-pygments python3-pkg-resources \
-    texlive-lang-chinese \
-    texlive-lang-japanese
+    texlive-full \
+    biber chktex latexmk make python3-pygments python3-pkg-resources
 
 # latexindent modules
 RUN apt-get install --no-install-recommends -y curl
