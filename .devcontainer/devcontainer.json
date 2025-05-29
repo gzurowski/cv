@@ -5,6 +5,7 @@
         "vscode": {
             "extensions": ["james-yu.latex-workshop"],
             "settings": {
+                "latex-workshop.formatting.latex": "latexindent",
                 "latex-workshop.latex.outDir": "./out"
             }
         }
