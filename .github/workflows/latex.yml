@@ -1,0 +1,28 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup TeX Live
+      run: |
+        sudo apt-get update && sudo apt-get -y upgrade \
+        && sudo apt-get -y install --no-install-recommends \
+        texlive-full \
+        biber chktex latexmk make python3-pygments python3-pkg-resources
+
+    - name: Build PDF
+      run: |
+        latexmk -pdf -interaction=nonstopmode -halt-on-error cv.tex
