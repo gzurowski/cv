@@ -20,7 +20,3 @@ jobs:
       uses: xu-cheng/latex-action@v3
       with:
         root_file: cv.tex
-
-    - name: Build PDF
-      run: |
-        latexmk -pdf -interaction=nonstopmode -halt-on-error cv.tex
