@@ -16,18 +16,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Cache APT packages
-      uses: actions/cache@v4
+    - name: Build
+      uses: xu-cheng/latex-action@v3
       with:
-        path: /var/cache/apt
-        key: ${{ runner.os }}-apt-${{ hashFiles('**/apt-packages.txt') }}
-
-    - name: Setup TeX Live
-      run: |
-        sudo apt-get update && sudo apt-get -y upgrade \
-        && sudo apt-get -y install --no-install-recommends \
-        texlive-full \
-        biber chktex latexmk make python3-pygments python3-pkg-resources
+        root_file: cv.tex
 
     - name: Build PDF
       run: |
