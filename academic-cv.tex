@@ -110,11 +110,12 @@
     \end{adjustwidth}
 } % new environment for one column entries
 
-\newenvironment{twocolentry}[2][]{
+\newenvironment{twocolentry}[2][6cm]{ % Optional argument #1 for 2nd col width, default to 6cm.
     \onecolentry
     \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 8 cm}
+    \setcolumnwidth{\fill, #1} % Use the optional argument for the width of the second column
     \begin{paracol}{2}
+    % Content within the environment is the first column
 }{
     \switchcolumn \raggedleft \secondColumn
     \end{paracol}
@@ -321,7 +322,7 @@
 %
 % Mercedes-Benz.io
 %
-\begin{twocolentry}{
+\begin{twocolentry}[7.5cm]{ % MODIFIED: Provide a custom width for the second column, e.g., 7.5cm
         \textit{Lisbon, Portugal \& Stuttgart, Germany}
 
         \textit{2016 – 2017}}
