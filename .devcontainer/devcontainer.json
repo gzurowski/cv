@@ -1,6 +1,7 @@
 {
     "name": "TeX Live",
     "dockerFile": "Dockerfile",
+    "runArgs": ["--name", "texlive_devcontainer_${localEnv:USER}"],
     "customizations": {
         "vscode": {
             "extensions": ["james-yu.latex-workshop"],
